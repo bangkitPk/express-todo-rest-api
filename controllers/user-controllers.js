@@ -30,18 +30,4 @@ module.exports = {
       data: user,
     });
   },
-
-  createNewUser: async (req, res) => {
-    const { username, email, password } = req.body;
-
-    await User.create({
-      username,
-      email,
-      password,
-    });
-
-    res.json({
-      message: "berhasil menambah user",
-    });
-  },
 };

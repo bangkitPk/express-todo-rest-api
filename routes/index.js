@@ -1,6 +1,7 @@
 const express = require("express");
 const route = express.Router();
 
+const authRoutes = require("./auth-routes");
 const userRoutes = require("./user-routes");
 const todoRoutes = require("./todo-routes");
 
@@ -10,6 +11,7 @@ route.get("/", (req, res) => {
   });
 });
 
+route.use("/auth", authRoutes);
 route.use("/users", userRoutes);
 route.use("/todos", todoRoutes);
 
