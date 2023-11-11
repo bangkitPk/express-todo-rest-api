@@ -2,10 +2,14 @@ const { Todo } = require("../models");
 
 module.exports = {
   getAllTodos: async (req, res) => {
-    const todos = await Todo.findAll();
+    const todos = await Todo.findAll({
+      where: {
+        userId: req.user.id,
+      },
+    });
 
     res.json({
-      message: "berhasil mendapatkan data todo",
+      message: "Successfully retrieved todos data",
       data: todos,
     });
   },
@@ -15,18 +19,19 @@ module.exports = {
     const todo = await Todo.findOne({
       where: {
         id: todoId,
+        userId: req.user.id,
       },
     });
 
     if (!todo) {
       res.status(400).json({
-        message: "todo tidak ditemukan",
+        message: "Todo not found",
       });
       return;
     }
 
     res.json({
-      message: "berhasil mendapatkan data user",
+      message: "Successfully retrieved todo data",
       data: todo,
     });
   },
@@ -35,13 +40,14 @@ module.exports = {
     const { task, detail } = req.body;
 
     await Todo.create({
+      userId: req.user.id,
       task,
       status: true, // set nilai default untuk todo baru (incomplete/active)
       detail,
     });
 
     res.json({
-      message: "berhasil menambah todo",
+      message: "Successfully created a new todo",
     });
   },
 
@@ -50,8 +56,16 @@ module.exports = {
     const todoToUpdate = await Todo.findOne({
       where: {
         id: todoId,
+        userId: req.user.id,
       },
     });
+
+    if (!todoToUpdate) {
+      res.status(400).json({
+        message: "Todo not found",
+      });
+      return;
+    }
 
     const { task, status, detail } = req.body;
 
@@ -64,12 +78,13 @@ module.exports = {
       {
         where: {
           id: todoId,
+          userId: req.user.id,
         },
       }
     );
 
     res.json({
-      message: "berhasil mengubah todo",
+      message: "Successfully updated the todo",
     });
   },
 
@@ -79,21 +94,24 @@ module.exports = {
     await Todo.destroy({
       where: {
         id: todoId,
+        userId: req.user.id,
       },
     });
 
     res.json({
-      message: "berhasil menghapus todo",
+      message: "Successfully deleted the todo",
     });
   },
 
   deleteAllTodos: async (req, res) => {
     await Todo.destroy({
-      where: {},
+      where: {
+        userId: req.user.id,
+      },
     });
 
     res.json({
-      message: "berhasil menghapus semua todo",
+      message: "Successfully deleted all todos",
     });
   },
 };
