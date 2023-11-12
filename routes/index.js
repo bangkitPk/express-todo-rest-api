@@ -8,7 +8,7 @@ const verifyToken = require("../middleware/auth");
 route.get("/", (req, res) => {
   res.json({
     message: "Welcome to the Todo API!",
-    info: "This API provides endpoints for managing todos. Check the documentation for available routes.",
+    info: "This API provides endpoints for managing todos.",
     author: "Bangkit Putra Kristana",
     version: "1.0.0",
   });
