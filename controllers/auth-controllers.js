@@ -53,8 +53,7 @@ module.exports = {
         throw new Error("Email already taken");
       }
 
-      let saltRounds = 10;
-      let hashPassword = await bcrypt.hash(password, saltRounds);
+      let hashPassword = await bcrypt.hash(password, 10);
 
       await User.create({
         username,

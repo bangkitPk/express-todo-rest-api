@@ -39,6 +39,12 @@ module.exports = {
   createNewTodo: async (req, res) => {
     const { task, detail } = req.body;
 
+    if (!task) {
+      return res.status(400).json({
+        message: "Task has not been entered",
+      });
+    }
+
     await Todo.create({
       userId: req.user.id,
       task,
@@ -90,6 +96,20 @@ module.exports = {
 
   deleteTodoById: async (req, res) => {
     const todoId = req.params.id;
+
+    const todoToDelete = await Todo.findOne({
+      where: {
+        id: todoId,
+        userId: req.user.id,
+      },
+    });
+
+    if (!todoToDelete) {
+      res.status(400).json({
+        message: "Todo not found",
+      });
+      return;
+    }
 
     await Todo.destroy({
       where: {
