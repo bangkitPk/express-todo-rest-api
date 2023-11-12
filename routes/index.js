@@ -2,18 +2,19 @@ const express = require("express");
 const route = express.Router();
 
 const authRoutes = require("./auth-routes");
-const userRoutes = require("./user-routes");
 const todoRoutes = require("./todo-routes");
 const verifyToken = require("../middleware/auth");
 
 route.get("/", (req, res) => {
   res.json({
-    message: "selamat datang di express sequelize",
+    message: "Welcome to the Todo API!",
+    info: "This API provides endpoints for managing todos. Check the documentation for available routes.",
+    author: "Bangkit Putra Kristana",
+    version: "1.0.0",
   });
 });
 
 route.use("/auth", authRoutes);
-route.use("/users", userRoutes);
 route.use("/todos", verifyToken, todoRoutes);
 
 module.exports = route;

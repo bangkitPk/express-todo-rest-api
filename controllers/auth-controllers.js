@@ -42,17 +42,31 @@ module.exports = {
   register: async (req, res) => {
     const { username, email, password } = req.body;
 
-    let saltRounds = 10;
-    let hashPassword = await bcrypt.hash(password, saltRounds);
+    try {
+      const isEmailExist = await User.findOne({
+        where: {
+          email: email,
+        },
+      });
 
-    await User.create({
-      username,
-      email,
-      password: hashPassword,
-    });
+      if (isEmailExist) {
+        throw new Error("Email already taken");
+      }
 
-    res.json({
-      message: "berhasil menambah user",
-    });
+      let saltRounds = 10;
+      let hashPassword = await bcrypt.hash(password, saltRounds);
+
+      await User.create({
+        username,
+        email,
+        password: hashPassword,
+      });
+
+      res.json({
+        message: "Register successful",
+      });
+    } catch (error) {
+      res.json(error.message);
+    }
   },
 };
