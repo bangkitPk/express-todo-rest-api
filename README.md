@@ -146,3 +146,41 @@ You can access the Todo API directly at the following endpoint: [https://vast-ta
     "message": "Successfully created a new todo"
   }
   ```
+
+### Edit Todo
+
+- **Endpoint:** `/todos/:id`
+- **Method:** `PUT`
+- **Headers:**
+
+  - `Authorization: Bearer <jwt-token>`
+
+- **`:id` (Endpoint Parameter):** The unique identifier of the todo.
+
+- **Request Body:**
+
+  ```json
+  {
+    "task": "Updated Task",
+    "status": false,
+    "detail": "Updated task details"
+  }
+  ```
+
+- **Response:**
+
+  - **Successful Response:**
+
+    ```json
+    {
+      "message": "Successfully updated the todo"
+    }
+    ```
+
+  - **Unsuccessful Response:**
+
+    ```json
+    {
+      "message": "Todo not found"
+    }
+    ```
