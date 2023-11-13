@@ -215,7 +215,7 @@ You can access the Todo API directly at the following endpoint: [https://vast-ta
 
 ### Delete All Todos
 
-- **Endpoint:** `/todos/`
+- **Endpoint:** `/todos`
 - **Method:** `DELETE`
 - **Headers:**
 
