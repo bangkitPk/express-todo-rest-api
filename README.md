@@ -99,25 +99,50 @@ You can access the Todo API directly at the following endpoint: [https://vast-ta
 
   - **Successful Response:**
 
-  ```json
-  {
-    "message": "Successfully retrieved todo data",
-    "data": {
-      "id": 1,
-      "task": "Example Task",
-      "status": true,
-      "detail": "Task details",
-      "userId": 1,
-      "createdAt": "Task Created Date",
-      "updatedAt": "Task Updated Date"
+    ```json
+    {
+      "message": "Successfully retrieved todo data",
+      "data": {
+        "id": 1,
+        "task": "Example Task",
+        "status": true,
+        "detail": "Task details",
+        "userId": 1,
+        "createdAt": "Task Created Date",
+        "updatedAt": "Task Updated Date"
+      }
     }
-  }
-  ```
+    ```
 
   - **Unsuccessful Response:**
 
+    ```json
+    {
+      "message": "Todo not found"
+    }
+    ```
+
+### Create New Todo
+
+- **Endpoint:** `/todos`
+- **Method:** `POST`
+- **Headers:**
+
+  - `Authorization: Bearer <jwt-token>`
+
+- **Request Body:**
+
   ```json
   {
-    "message": "Todo not found"
+    "task": "New Task",
+    "detail": "New Task Detail"
+  }
+  ```
+
+- **Response:**
+
+  ```json
+  {
+    "message": "Successfully created a new todo"
   }
   ```
