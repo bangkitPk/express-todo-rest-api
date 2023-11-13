@@ -22,3 +22,37 @@ You can access the Todo API directly at the following endpoint: [https://vast-ta
     "password": "userpassword"
   }
   ```
+
+- **Response:**
+
+  ```json
+  {
+    "message": "Login successful",
+    "userId": 1,
+    "token": "<generated-jwt-token>"
+  }
+  ```
+
+### Register
+
+- **Endpoint:** `/auth/register`
+- **Method:** `POST`
+- **Request Body:**
+
+  ```json
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "newuserpassword"
+  }
+  ```
+
+- **Response:**
+
+  ```json
+  {
+    "message": "Register successful"
+  }
+  ```
+
+## Todo Endpoints
