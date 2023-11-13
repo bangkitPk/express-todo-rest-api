@@ -75,9 +75,53 @@ You can access the Todo API directly at the following endpoint: [https://vast-ta
         "id": 1,
         "task": "Example Task",
         "status": true,
-        "detail": "Task details"
+        "detail": "Task details",
+        "userId": 1,
+        "createdAt": "Task Created Date",
+        "updatedAt": "Task Updated Date"
       }
       // ...more todos
     ]
   }
   ```
+
+### Get Todo by ID Endpoint
+
+- **Description:**
+  - `This endpoint allows you to retrieve a specific todo by providing its unique identifier (ID).`
+- **Endpoint:** `/todos/:id`
+- **Method:** `GET`
+- **Headers:**
+
+  - `Authorization: Bearer <jwt-token>`
+
+- **`:id` (Endpoint Parameter):** The unique identifier of the todo.
+
+- **`Response:`**
+
+  - `If the todo with the specified ID is found, the API will respond with a JSON object containing the todo details. If the todo is not found, an appropriate error message will be returned.`
+
+    - **`Successful Response:`**
+
+```json
+{
+  "message": "Successfully retrieved todo data",
+  "data": {
+    "id": 1,
+    "task": "Example Task",
+    "status": true,
+    "detail": "Task details",
+    "userId": 1,
+    "createdAt": "Task Created Date",
+    "updatedAt": "Task Updated Date"
+  }
+}
+```
+
+- **`Unsuccessful Response:`**
+
+```json
+{
+  "message": "Todo not found"
+}
+```
