@@ -56,3 +56,28 @@ You can access the Todo API directly at the following endpoint: [https://vast-ta
   ```
 
 ## Todo Endpoints
+
+### Get All Todos
+
+- **Endpoint:** `/todos`
+- **Method:** `GET`
+- **Headers:**
+
+  - `Authorization: Bearer <jwt-token>`
+
+- **Response:**
+
+  ```json
+  {
+    "message": "Successfully retrieved todos data",
+    "data": [
+      {
+        "id": 1,
+        "task": "Example Task",
+        "status": true,
+        "detail": "Task details"
+      }
+      // ...more todos
+    ]
+  }
+  ```
