@@ -6,7 +6,7 @@ Welcome to the Todo API documentation! This API provides endpoints for managing 
 
 ## Accessing the API
 
-You can access the Todo API at the following base endpoint: [https://vast-tan-kitten-cuff.cyclic.app/](https://vast-tan-kitten-cuff.cyclic.app/)
+You can access the Todo API at the following base URL: [https://vast-tan-kitten-cuff.cyclic.app/](https://vast-tan-kitten-cuff.cyclic.app/)
 
 ## Authentication
 
