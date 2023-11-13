@@ -61,7 +61,7 @@ You can access the Todo API at the following base URL: [https://vast-tan-kitten-
 
 - **Endpoint:** `/todos`
 - **Method:** `GET`
-- **Headers:**
+- **Header:**
 
   - `Authorization: Bearer <jwt-token>`
 
@@ -89,7 +89,7 @@ You can access the Todo API at the following base URL: [https://vast-tan-kitten-
 
 - **Endpoint:** `/todos/:id`
 - **Method:** `GET`
-- **Headers:**
+- **Header:**
 
   - `Authorization: Bearer <jwt-token>`
 
@@ -126,7 +126,7 @@ You can access the Todo API at the following base URL: [https://vast-tan-kitten-
 
 - **Endpoint:** `/todos`
 - **Method:** `POST`
-- **Headers:**
+- **Header:**
 
   - `Authorization: Bearer <jwt-token>`
 
@@ -151,7 +151,7 @@ You can access the Todo API at the following base URL: [https://vast-tan-kitten-
 
 - **Endpoint:** `/todos/:id`
 - **Method:** `PUT`
-- **Headers:**
+- **Header:**
 
   - `Authorization: Bearer <jwt-token>`
 
@@ -189,7 +189,7 @@ You can access the Todo API at the following base URL: [https://vast-tan-kitten-
 
 - **Endpoint:** `/todos/:id`
 - **Method:** `DELETE`
-- **Headers:**
+- **Header:**
 
   - `Authorization: Bearer <jwt-token>`
 
@@ -217,7 +217,7 @@ You can access the Todo API at the following base URL: [https://vast-tan-kitten-
 
 - **Endpoint:** `/todos`
 - **Method:** `DELETE`
-- **Headers:**
+- **Header:**
 
   - `Authorization: Bearer <jwt-token>`
 
