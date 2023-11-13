@@ -184,3 +184,46 @@ You can access the Todo API directly at the following endpoint: [https://vast-ta
       "message": "Todo not found"
     }
     ```
+
+### Delete Todo by ID
+
+- **Endpoint:** `/todos/:id`
+- **Method:** `DELETE`
+- **Headers:**
+
+  - `Authorization: Bearer <jwt-token>`
+
+- **`:id` (Endpoint Parameter):** The unique identifier of the todo.
+
+- **Response:**
+
+  - **Successful Response:**
+
+    ```json
+    {
+      "message": "Successfully deleted the todo"
+    }
+    ```
+
+  - **Unsuccessful Response:**
+
+    ```json
+    {
+      "message": "Todo not found"
+    }
+    ```
+
+### Delete All Todos
+
+- **Endpoint:** `/todos/`
+- **Method:** `DELETE`
+- **Headers:**
+
+  - `Authorization: Bearer <jwt-token>`
+
+- **Response:**
+  ```json
+  {
+    "message": "Successfully deleted all todos"
+  }
+  ```
